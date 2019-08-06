@@ -67,12 +67,12 @@ console.log("Rover Direction: [" + rover.position[0] + ", " + rover.position[1] 
 
 let direction = ['f','f','l','l','r'] 
 
-function roverCommands(commands) {
-  for (let i = 0 ; i < commands.length ; i++) {
+function roverCommands(direction) {
+  for (let i = 0 ; i < direction.length ; i++) {
     console.log(i)
 
     //..............
-    switch (commands[i]){
+    switch (direction[i]){
       case 'f':
         moveForward(rover);
         break;
