@@ -1,69 +1,93 @@
-// Rover Object Goes Here
-// ======================
-
-let rover ={
-direction: "N",
-position: [0,0],
-name: "Mars Rover"
+let rover = {
+  direction: "N",
+  position: [0,0],
+  name: "Mars Rover"
 };
 
-
-// ======================
-function turnLeft(rover){
+function turnLeft(rover) {
   switch(rover.direction) {
-    case "N":
-     rover.direction = "W";
-     break;
-     case "E":
-     rover.direction = "N";
-     break;
-     case "S":
-     rover.direction = "E";
-     break;
-     case "W":
-     rover.direction = "S";
-     break;
-  };   
-  console.log("turnLeft was called!");
+    case 'N':
+      rover.direction = 'W';
+      break;
+    case 'E':
+      rover.direction = 'N';
+      break;
+    case 'S':
+      rover.direction = 'E';
+      break;
+    case 'W':
+      rover.direction = 'S';
+      break;
+  };
+
+console.log("Rover Direction: " + rover.direction);
 }
+
 
 function turnRight(rover){
   switch(rover.direction) {
-   case "N":
-    rover.direction ="E";
-     break;
-    case "E":
-     rover.direction ="S";
-     break;
-    case "S":
-     rover.direction ="W";
-     break;
-    case "W":
-     rover.direction ="N";
-     break;
+    case 'N':
+      rover.direction = 'E';
+      break;
+    case 'E':
+      rover.direction = 'S';
+      break;
+    case 'S':
+      rover.direction = 'W';
+      break;
+    case 'W':
+      rover.direction = 'N';
+      break;
   };
-  
-  console.log("turnRight was called!");
+
+console.log("Rover Direction: "+ rover.direction);
+
 }
+
 
 function moveForward(rover){
   switch(rover.direction) {
-    case "N":
-      rover.direction[0]++
+    case 'N':
+      rover.position[0]++
       break;
-    case "E":
-      rover.direction[1]++
+    case 'E':
+      rover.position[1]++
       break;
-    case "S":
-      rover.direction[0]--
+    case 'S':
+      rover.position[0]--
       break;
-     case "W":
-      rover.direction[1]--
+    case 'W':
+      rover.position[1]--
       break;
-  ];    
-  console.log("moveForward was called")
+  };
+
+console.log("Rover Direction: [" + rover.position[0] + ", " + rover.position[1] + "]")
 }
 
+
+let direction = ['f','f','l','l','r'] 
+
+function roverCommands(commands) {
+  for (let i = 0 ; i < commands.length ; i++) {
+    console.log(i)
+
+    //..............
+    switch (commands[i]){
+      case 'f':
+        moveForward(rover);
+        break;
+      case 'l':
+        turnLeft(rover);
+        break;
+      case 'r':
+        turnRight(rover);
+      break
+        ;
+    }
+ }
+}
+  
+ roverCommands(direction);
 
 
 
