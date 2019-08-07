@@ -1,8 +1,10 @@
+
 let rover = {
   direction: "N",
   position: [0,0],
-  name: "Mars Rover"
-};
+  travelLog: [0,0]
+  };
+
 
 function turnLeft(rover) {
   switch(rover.direction) {
@@ -20,7 +22,7 @@ function turnLeft(rover) {
       break;
   };
 
-console.log("Rover Direction: " + rover.direction);
+console.log("Rover Direction:   "   +   rover.direction    +  " Last location: "  + rover.travelLog);
 }
 
 
@@ -34,13 +36,13 @@ function turnRight(rover){
       break;
     case 'S':
       rover.direction = 'W';
-      break;
+      break; 
     case 'W':
       rover.direction = 'N';
       break;
   };
 
-console.log("Rover Direction: "+ rover.direction);
+console.log("Rover Direction: "+ rover.direction + rover.travelLog);
 
 }
 
@@ -61,11 +63,13 @@ function moveForward(rover){
       break;
   };
 
-console.log("Rover Direction: [" + rover.position[0] + ", " + rover.position[1] + "]")
+console.log("Rover Direction: [" + rover.position[0] + ", " + rover.position[1] + "]" +rover.travelLog)
 }
 
 
-let direction = ['f','f','l','l','r'] 
+
+let direction = ['l','f','f','l','r'] 
+
 
 function roverCommands(direction) {
   for (let i = 0 ; i < direction.length ; i++) {
@@ -84,11 +88,18 @@ function roverCommands(direction) {
       break
         ;
     }
+    
  }
-}
-  
+} 
+
+
+
  roverCommands(direction);
 
-
+function travelLog(rover) {
+  let travelLog = [0,0];
+  travelLog.push([rover.position]);
+  console.log("Last Position" + travelLog);
+}  
 
 
